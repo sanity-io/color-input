@@ -28,12 +28,12 @@ yarn add @sanity/color-input@studio-v3
 Add it as a plugin in sanity.config.ts (or .js):
 
 ```js
-import { colorSchema } from "@sanity/color-input";
+import { colorInput } from "@sanity/color-input";
 
 export default createConfig({
   // ...
   plugins: [
-    colorSchema(),
+    colorInput(),
   ] 
 })
 ```
