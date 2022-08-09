@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [ubuntu-latest, macos-latest]
+        platform: [ ubuntu-latest, macos-latest ]
         node-version:
           - 16
     steps:
@@ -17,11 +17,25 @@ jobs:
         run: |
           git config --global core.autocrlf false
           git config --global core.eol lf
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
+      - run: npm ci
       - run: npm run lint
       - run: npm run build
       #- run: npm test
+  release:
+      name: Deployment
+      if: 'refs/heads/main' == github.ref || 'refs/heads/studio-v3' == github.ref
+      needs: [ test ]
+      runs-on: ubuntu-latest
+      steps:
+        - name: Setup Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: 16
+        - run: npx semantic-release
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
