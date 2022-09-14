@@ -43,8 +43,8 @@
   ],
   "dependencies": {
     "@sanity/icons": "^1.2.8",
-    "@sanity/incompatible-plugin": "^0.0.1-studio-v3.3",
-    "@sanity/ui": "^0.37.9",
+    "@sanity/incompatible-plugin": "^1.0.1",
+    "@sanity/ui": "^0.38.2",
     "lodash": "^4.17.21",
     "react-color": "^2.19.3"
   },
