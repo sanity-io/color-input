@@ -1,4 +1,6 @@
-export const rgbaColor = {
+import {defineType} from 'sanity'
+
+export const rgbaColor = defineType({
   title: 'Red Green Blue (rgb)',
   name: 'rgbaColor',
   type: 'object',
@@ -8,4 +10,4 @@ export const rgbaColor = {
     {name: 'b', type: 'number', title: 'Blue'},
     {name: 'a', type: 'number', title: 'Alpha'},
   ],
-}
+})

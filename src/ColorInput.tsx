@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
-import {set, setIfMissing, unset} from 'sanity/form'
+import {ObjectOptions, set, setIfMissing, unset} from 'sanity'
 import {debounce} from 'lodash'
 import {Button} from '@sanity/ui'
 import {AddIcon} from '@sanity/icons'
@@ -23,11 +23,11 @@ export interface ColorValue {
   rgb: RGBColor
 }
 
-export interface ColorOptions {
+export interface ColorOptions extends Omit<ObjectOptions, 'columns'> {
   disableAlpha?: boolean
 }
 
-export type ColorSchemaType = ObjectSchemaType & {
+export type ColorSchemaType = Omit<ObjectSchemaType, 'options'> & {
   options?: ColorOptions
 }
 export type ColorInputProps = ObjectInputProps<ColorValue, ColorSchemaType>
@@ -92,7 +92,7 @@ export function ColorInput(props: ColorInputProps) {
           color={color}
           onChange={handleColorChange}
           readOnly={readOnly || (typeof type.readOnly === 'boolean' && type.readOnly)}
-          disableAlpha={type.options?.disableAlpha}
+          disableAlpha={!!type.options?.disableAlpha}
           onUnset={handleUnset}
         />
       ) : (

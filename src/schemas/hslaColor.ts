@@ -1,4 +1,6 @@
-export const hslaColor = {
+import {defineType} from 'sanity'
+
+export const hslaColor = defineType({
   title: 'Hue Saturation Lightness',
   name: 'hslaColor',
   type: 'object',
@@ -8,4 +10,4 @@ export const hslaColor = {
     {name: 'l', type: 'number', title: 'Lightness'},
     {name: 'a', type: 'number', title: 'Alpha'},
   ],
-}
+})

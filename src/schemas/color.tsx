@@ -1,10 +1,28 @@
 import React from 'react'
-import {ColorInput} from '../ColorInput'
+import {ColorInput, ColorOptions} from '../ColorInput'
+import {defineType, ObjectDefinition} from 'sanity'
 
 const round = (val: number = 1) => Math.round(val * 100)
 
-export const color = {
-  name: 'color',
+const colorTypeName = 'color' as const
+
+/**
+ * @public
+ */
+export interface ColorDefinition extends Omit<ObjectDefinition, 'type' | 'fields' | 'options'> {
+  type: typeof colorTypeName
+  options?: ColorOptions
+}
+
+declare module '@sanity/types' {
+  // makes type: 'color' narrow correctly when using defineTyp/defineField/defineArrayMember
+  export interface IntrinsicDefinitions {
+    color: ColorDefinition
+  }
+}
+
+export const color = defineType({
+  name: colorTypeName,
   type: 'object',
   title: 'Color',
   components: {input: ColorInput},
@@ -76,4 +94,4 @@ export const color = {
       }
     },
   },
-}
+})
