@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0-v3-studio.6](https://github.com/sanity-io/color-input/compare/v3.0.0-v3-studio.5...v3.0.0-v3-studio.6) (2022-10-07)
+
+### Bug Fixes
+
+- **deps:** dev-preview.21 ([3ade93b](https://github.com/sanity-io/color-input/commit/3ade93bf6b14934a762c79819ac34bcbdae8919e))
+
 ## [3.0.0-v3-studio.5](https://github.com/sanity-io/color-input/compare/v3.0.0-v3-studio.4...v3.0.0-v3-studio.5) (2022-09-15)
 
 ### Bug Fixes

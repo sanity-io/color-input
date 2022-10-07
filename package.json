@@ -1,6 +1,6 @@
 {
   "name": "@sanity/color-input",
-  "version": "3.0.0-v3-studio.5",
+  "version": "3.0.0-v3-studio.6",
   "description": "Color input",
   "scripts": {
     "clean": "rimraf lib",
