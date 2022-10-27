@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0-v3-studio.8](https://github.com/sanity-io/color-input/compare/v3.0.0-v3-studio.7...v3.0.0-v3-studio.8) (2022-10-27)
+
+### Bug Fixes
+
+- @sanity/ui 1.0.0-beta.31 ([e43966a](https://github.com/sanity-io/color-input/commit/e43966acb4b050268cca6261abfb91a4e19cd791))
+
 ## [3.0.0-v3-studio.7](https://github.com/sanity-io/color-input/compare/v3.0.0-v3-studio.6...v3.0.0-v3-studio.7) (2022-10-27)
 
 ### Bug Fixes
