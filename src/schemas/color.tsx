@@ -25,7 +25,7 @@ export const color = defineType({
   name: colorTypeName,
   type: 'object',
   title: 'Color',
-  components: {input: ColorInput},
+  ...({components: {input: ColorInput}} as {}), //TODO revert this change when sanity 3.0.0-rc.1 is released
   fields: [
     {
       title: 'Hex',

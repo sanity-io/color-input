@@ -2,11 +2,13 @@
   "name": "@sanity/color-input",
   "version": "3.0.0-v3-studio.8",
   "description": "Color input",
+  "author": "Sanity.io <hello@sanity.io>",
+  "license": "MIT",
   "scripts": {
     "clean": "rimraf lib",
-    "prebuild": "npm run clean && plugin-kit verify-package --silent",
-    "build": "parcel build --no-cache",
-    "watch": "parcel watch",
+    "prebuild": "npm run clean && plugin-kit verify-package --silent && pkg-utils",
+    "build": "pkg-utils build",
+    "watch": "pkg-utils watch",
     "link-watch": "plugin-kit link-watch",
     "prepublishOnly": "npm run build",
     "compile": "tsc --noEmit",
@@ -17,21 +19,22 @@
   "source": "./src/index.ts",
   "exports": {
     ".": {
-      "require": "./lib/cjs/index.js",
-      "default": "./lib/esm/index.js"
+      "types": "./lib/src/index.d.ts",
+      "source": "./src/index.ts",
+      "import": "./lib/index.esm.js",
+      "require": "./lib/index.js",
+      "default": "./lib/index.js"
     }
   },
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
-  "types": "./lib/types/index.d.ts",
+  "main": "./lib/index.js",
+  "module": "./lib/index.esm.js",
+  "types": "./lib/src/index.d.ts",
   "files": [
     "src",
     "lib",
     "v2-incompatible.js",
     "sanity.json"
   ],
-  "author": "Sanity.io <hello@sanity.io>",
-  "license": "MIT",
   "keywords": [
     "sanity",
     "cms",
@@ -44,51 +47,52 @@
   "dependencies": {
     "@sanity/icons": "^1.2.8",
     "@sanity/incompatible-plugin": "^1.0.4",
-    "@sanity/ui": "^1.0.0-beta.31",
+    "@sanity/ui": "^1.0.0-beta.32",
     "lodash": "^4.17.21",
     "react-color": "^2.19.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
     "@parcel/packager-ts": "^2.6.0",
     "@parcel/transformer-typescript-types": "^2.6.0",
-    "@sanity/plugin-kit": "^1.1.0-ecosystem-preset.5",
-    "@sanity/semantic-release-preset": "^2.0.1",
+    "@sanity/pkg-utils": "^1.16.2",
+    "@sanity/plugin-kit": "^2.0.2",
+    "@sanity/semantic-release-preset": "^2.0.2",
     "@types/react-color": "^2.17.6",
     "@types/styled-components": "^5.1.25",
-    "@typescript-eslint/eslint-plugin": "^5.12.0",
-    "@typescript-eslint/parser": "^5.12.0",
-    "eslint": "^8.7.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-sanity": "^5.1.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-sanity": "^6.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "parcel": "^2.6.0",
-    "prettier": "^2.6.2",
+    "prettier": "^2.7.1",
     "react": "^18.0.0",
     "rimraf": "^3.0.2",
-    "sanity": "3.0.0-dev-preview.22",
+    "sanity": "3.0.0-rc.0",
     "semantic-release": "^19.0.3",
     "styled-components": "^5.2.0",
-    "typescript": "4.7.4"
+    "typescript": "^4.8.4"
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "sanity": "dev-preview",
+    "sanity": "dev-preview || 3.0.0-rc.0",
     "styled-components": "^5.2.0"
   },
   "bugs": {
     "url": "https://github.com/sanity-io/color-input/issues"
   },
-  "homepage": "https://www.sanity.io/",
+  "homepage": "https://github.com/sanity-io/color-input#readme",
   "sanityExchangeUrl": "https://www.sanity.io/plugins/color-input",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sanity-io/color-input.git"
+    "url": "git@github.com:sanity-io/color-input.git"
   },
   "publishConfig": {
     "access": "public"

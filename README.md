@@ -1,7 +1,7 @@
 # @sanity/color-input
 
-> **NOTE** 
-> 
+> **NOTE**
+>
 > This is the **Sanity Studio v3 version** of @sanity/color-input.
 > 
 > For the v2 version, please refer to the [v2-branch](https://github.com/sanity-io/sanity/tree/next/packages/%40sanity/color-input).
@@ -110,7 +110,6 @@ Which will render accordingly:
 ## License
 
 MIT-licensed. See LICENSE.
-
 
 ## Develop & test
 
