@@ -30,7 +30,7 @@ Add it as a plugin in sanity.config.ts (or .js):
 ```js
 import { colorInput } from "@sanity/color-input";
 
-export default createConfig({
+export default defineConfig({
   // ...
   plugins: [
     colorInput(),
