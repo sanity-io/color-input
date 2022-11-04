@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0-v3-studio.11](https://github.com/sanity-io/color-input/compare/v3.0.0-v3-studio.10...v3.0.0-v3-studio.11) (2022-11-04)
+
+### Bug Fixes
+
+- **deps:** pin dependencies ([#11](https://github.com/sanity-io/color-input/issues/11)) ([71ba471](https://github.com/sanity-io/color-input/commit/71ba471f23c91afa87eb7d76f54cb1022157c4e5))
+
 ## [3.0.0-v3-studio.10](https://github.com/sanity-io/color-input/compare/v3.0.0-v3-studio.9...v3.0.0-v3-studio.10) (2022-11-02)
 
 ### Bug Fixes
