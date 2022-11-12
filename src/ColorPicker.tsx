@@ -41,6 +41,11 @@ const ColorPickerInner = (props: ColorPickerProps) => {
     disableAlpha,
     readOnly,
   } = props
+
+  if (!hsl || !hsv) {
+    return null
+  }
+
   return (
     <div style={{width}}>
       <Card padding={1} border radius={1}>
