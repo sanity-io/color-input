@@ -5,6 +5,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0-v3-studio.12](https://github.com/sanity-io/color-input/compare/v3.0.0-v3-studio.11...v3.0.0-v3-studio.12) (2022-11-12)
+
+### Bug Fixes
+
+- crash when creating new color ([379e793](https://github.com/sanity-io/color-input/commit/379e793417a4d3ceca5f099c282dcef8abddd096))
+- **deps:** pkg-utils & @sanity/plugin-kit ([c84aefa](https://github.com/sanity-io/color-input/commit/c84aefae2ffc3c7e02ad33411cf243cd8a0669f9))
+
 ## [3.0.0-v3-studio.11](https://github.com/sanity-io/color-input/compare/v3.0.0-v3-studio.10...v3.0.0-v3-studio.11) (2022-11-04)
 
 ### Bug Fixes
