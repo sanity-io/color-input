@@ -13,7 +13,7 @@
   ],
   "homepage": "https://www.sanity.io/",
   "bugs": {
-    "url": "git@github.com:sanity-io//issues"
+    "url": "https://github.com/sanity-io/color-input/issues"
   },
   "repository": {
     "type": "git",
