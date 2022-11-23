@@ -14,7 +14,7 @@ yarn add @sanity/color-input@studio-v2
 Next, add `"@sanity/color-input"` to `sanity.json` plugins array:
 ```json
 "plugins": [
-@sanity/color-input
+ "@sanity/color-input"
 ]
 ```
 
