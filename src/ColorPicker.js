@@ -1,12 +1,10 @@
 import React from 'react'
-import {Alpha, Checkboard, Hue, Saturation} from 'react-color/lib/components/common'
-import {CustomPicker, HEXColor, HSLColor, HSVColor, RGBColor} from 'react-color'
-import {Box, Button, Card, Flex, Inline, Stack, Text} from '@sanity/ui'
+import PropTypes from 'prop-types'
+import {ColorWrap, Checkboard, Saturation, Hue, Alpha} from 'react-color/lib/components/common'
+import {Box, Card, Flex, Button, Inline, Stack, Text} from '@sanity/ui'
 import {TrashIcon} from '@sanity/icons'
 import styled from 'styled-components'
 import {ColorPickerFields} from './ColorPickerFields'
-import {CustomPickerInjectedProps} from 'react-color/lib/components/common/ColorWrap'
-import {ColorValue} from './ColorInput'
 
 const ColorBox = styled(Box)`
   position: absolute;
@@ -23,24 +21,18 @@ const ReadOnlyContainer = styled(Flex)`
   width: 100%;
 `
 
-export interface ColorPickerProps
-  extends CustomPickerInjectedProps<HSLColor | HSVColor | RGBColor | HEXColor> {
-  width?: string
-  disableAlpha: boolean
-  readOnly?: boolean
-  onUnset: () => void
-  color: ColorValue
-}
-
-const ColorPickerInner = (props: ColorPickerProps) => {
-  const {
-    width,
-    color: {rgb, hex, hsv, hsl},
-    onChange,
-    onUnset,
-    disableAlpha,
-    readOnly,
-  } = props
+const ColorPicker = ({
+  width,
+  rgb,
+  hex,
+  hsv,
+  hsl,
+  onChange,
+  onUnset,
+  disableAlpha,
+  renderers,
+  readOnly,
+}) => {
   return (
     <div style={{width}}>
       <Card padding={1} border radius={1}>
@@ -48,7 +40,7 @@ const ColorPickerInner = (props: ColorPickerProps) => {
           {!readOnly && (
             <>
               <Card overflow="hidden" style={{position: 'relative', height: '5em'}}>
-                <Saturation onChange={onChange} hsl={hsl} hsv={hsv} />
+                <Saturation is="Saturation" onChange={onChange} hsl={hsl} hsv={hsv} />
               </Card>
 
               <Card
@@ -57,7 +49,7 @@ const ColorPickerInner = (props: ColorPickerProps) => {
                 overflow="hidden"
                 style={{position: 'relative', height: '10px'}}
               >
-                <Hue hsl={hsl} onChange={!readOnly && onChange} />
+                <Hue is="Hue" hsl={hsl} onChange={!readOnly && onChange} />
               </Card>
 
               {!disableAlpha && (
@@ -67,7 +59,7 @@ const ColorPickerInner = (props: ColorPickerProps) => {
                   overflow="hidden"
                   style={{position: 'relative', height: '10px'}}
                 >
-                  <Alpha rgb={rgb} hsl={hsl} onChange={onChange} />
+                  <Alpha is="Alpha" rgb={rgb} hsl={hsl} renderers={renderers} onChange={onChange} />
                 </Card>
               )}
             </>
@@ -80,11 +72,7 @@ const ColorPickerInner = (props: ColorPickerProps) => {
               style={{position: 'relative', minWidth: '4em'}}
             >
               <Checkboard />
-              <ColorBox
-                style={{
-                  backgroundColor: `rgba(${rgb?.r},${rgb?.g},${rgb?.b},${rgb?.a})`,
-                }}
-              />
+              <ColorBox style={{backgroundColor: `rgba(${rgb.r},${rgb.g},${rgb.b},${rgb.a})`}} />
 
               {readOnly && (
                 <ReadOnlyContainer
@@ -101,11 +89,11 @@ const ColorPickerInner = (props: ColorPickerProps) => {
                     <Inline space={3}>
                       <Text size={1}>
                         <strong>RGB: </strong>
-                        {rgb?.r} {rgb?.g} {rgb?.b}
+                        {rgb.r} {rgb.g} {rgb.b}
                       </Text>
                       <Text size={1}>
-                        <strong>HSL: </strong> {Math.round(hsl?.h ?? 0)} {Math.round(hsl?.s ?? 0)}%{' '}
-                        {Math.round(hsl?.l ?? 0)}
+                        <strong>HSL: </strong> {Math.round(hsl.h)} {Math.round(hsl.s)}%{' '}
+                        {Math.round(hsl.l)}
                       </Text>
                     </Inline>
                   </Stack>
@@ -136,4 +124,21 @@ const ColorPickerInner = (props: ColorPickerProps) => {
   )
 }
 
-export const ColorPicker = CustomPicker(ColorPickerInner)
+ColorPicker.propTypes = {
+  width: PropTypes.string,
+  hex: PropTypes.string,
+  hsl: PropTypes.object,
+  hsv: PropTypes.object,
+  rgb: PropTypes.object,
+  onChange: PropTypes.func,
+  disableAlpha: PropTypes.bool,
+  readOnly: PropTypes.bool,
+  renderers: PropTypes.func,
+  onUnset: PropTypes.func,
+}
+
+ColorPicker.defaultProps = {
+  disableAlpha: false,
+}
+
+export default ColorWrap(ColorPicker)

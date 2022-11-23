@@ -9,3 +9,10 @@
 /tsconfig.json
 /tsconfig.lib.json
 .idea/
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc
+src
+test
+tsconfig.tsbuildinfo

@@ -1,13 +1,14 @@
+/* eslint-disable react/display-name */
 import React from 'react'
-import {ColorInput} from '../ColorInput'
+import ColorInput from '../ColorInput'
 
-const round = (val: number = 1) => Math.round(val * 100)
+const round = (val) => Math.round(val * 100)
 
-export const color = {
+export default {
   name: 'color',
   type: 'object',
   title: 'Color',
-  components: {input: ColorInput},
+  inputComponent: ColorInput,
   fields: [
     {
       title: 'Hex',
@@ -42,20 +43,10 @@ export const color = {
       hex: 'hex',
       hsl: 'hsl',
     },
-    prepare({
-      title,
-      hex,
-      hsl,
-      alpha,
-    }: {
-      title?: string
-      alpha?: number
-      hex?: string
-      hsl?: {h: number; s: number; l: number}
-    }) {
+    prepare({title, hex, hsl, alpha}) {
       let subtitle = hex || 'No color set'
       if (hsl) {
-        subtitle = `H:${round(hsl.h)} S:${round(hsl.s)} L:${round(hsl.l)} A:${round(alpha)}`
+        subtitle = `H:${round(hsl.l)} S:${round(hsl.l)} L:${round(hsl.l)} A:${round(alpha)}`
       }
       return {
         title: title,
@@ -63,8 +54,8 @@ export const color = {
         media: () => (
           <div
             style={{
-              backgroundColor: hex ?? '#000',
-              opacity: alpha ?? 1,
+              backgroundColor: hex || '#000',
+              opacity: alpha || 1,
               position: 'absolute',
               height: '100%',
               width: '100%',

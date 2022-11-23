@@ -1,4 +1,4 @@
-export const rgbaColor = {
+export default {
   title: 'Red Green Blue (rgb)',
   name: 'rgbaColor',
   type: 'object',

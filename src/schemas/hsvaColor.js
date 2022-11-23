@@ -1,11 +1,11 @@
-export const hslaColor = {
-  title: 'Hue Saturation Lightness',
-  name: 'hslaColor',
+export default {
+  title: 'Hue Saturation Value',
+  name: 'hsvaColor',
   type: 'object',
   fields: [
     {name: 'h', type: 'number', title: 'Hue'},
     {name: 's', type: 'number', title: 'Saturation'},
-    {name: 'l', type: 'number', title: 'Lightness'},
+    {name: 'v', type: 'number', title: 'Value'},
     {name: 'a', type: 'number', title: 'Alpha'},
   ],
 }

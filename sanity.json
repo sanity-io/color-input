@@ -1,8 +1,32 @@
 {
+  "paths": {
+    "source": "./src",
+    "compiled": "./lib"
+  },
   "parts": [
     {
-      "implements": "part:@sanity/base/sanity-root",
-      "path": "./v2-incompatible.js"
+      "name": "part:@sanity/color-input/input/color",
+      "description": "Color input"
+    },
+    {
+      "implements": "part:@sanity/color-input/input/color",
+      "path": "ColorInput"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "schemas/hslaColor"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "schemas/hsvaColor"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "schemas/rgbaColor"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "schemas/color"
     }
   ]
 }

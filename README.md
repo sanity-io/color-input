@@ -1,46 +1,26 @@
 # @sanity/color-input
 
-> **NOTE** 
-> 
-> This is the **Sanity Studio v3 version** of @sanity/color-input.
-> 
-> For the v2 version, please refer to the [v2-branch](https://github.com/sanity-io/sanity/tree/next/packages/%40sanity/color-input).
+> This is a **Sanity Studio v2** plugin.
+> For the v3 version, please refer to the [v3-branch](https://github.com/sanity-io/color-input).
 
-## What is it?
-
-Color input plugin for [Sanity](https://sanity.io/) that stores selected colors in hex, hsl, hsv and rgb format.
-
-![Color input in the Studio](assets/color-input.png)
+Color input for [Sanity](https://sanity.io/) that stores selected colors in hex, hsl, hsv and rgb format.
 
 ## Installation
-```
-npm install --save @sanity/color-input@studio-v3
+
+```sh
+yarn add @sanity/color-input@studio-v2
 ```
 
-or 
-
-```
-yarn add @sanity/color-input@studio-v3
+Next, add `"@sanity/color-input"` to `sanity.json` plugins array:
+```json
+"plugins": [
+@sanity/color-input
+]
 ```
 
 ## Usage
 
-Add it as a plugin in sanity.config.ts (or .js):
-
-```js
-import { colorSchema } from "@sanity/color-input";
-
-export default createConfig({
-  // ...
-  plugins: [
-    colorSchema(),
-  ] 
-})
-```
-
-
-
-Now you can use the `color` type in your schema types:
+Use it in your schema types:
 
 ```js
 // [...]
@@ -56,6 +36,8 @@ Now you can use the `color` type in your schema types:
 }
 ```
 
+Note that the above only works if you import and use the `all:part:@sanity/base/schema-type` part in your schema.
+
 ## Options
 
 To disable the alpha option, set `disableAlpha` to `true`:
@@ -64,17 +46,13 @@ To disable the alpha option, set `disableAlpha` to `true`:
 // ...fields...
 {
   name: 'favoriteColor',
-  title: 'Color no-alpha',
+  title: 'Favorite color',
   type: 'color',
   options: {
     disableAlpha: true
   }
 }
 ```
-
-Which will render accordingly:
-
-![This is an image](assets/no-alpha.png)
 
 ## Data model
 
@@ -110,26 +88,3 @@ Which will render accordingly:
 ## License
 
 MIT-licensed. See LICENSE.
-
-
-## Develop & test
-
-Make sure to run `npm run build` once, then run
-
-```bash
-npm run link-watch
-```
-
-In another shell, `cd` to your test studio and run:
-
-```bash
-npx yalc add @sanity/color-input --link && yarn install
-```
-
-Now, changes in this repo will be automatically built and pushed to the studio,
-triggering hotreload. Yalc avoids issues with react-hooks that are typical when using yarn/npm link.
-
-### About build & watch 
-
-This plugin uses [@sanity/plugin-sdk](https://github.com/sanity-io/plugin-sdk)
-with default configuration for build & watch scripts.
