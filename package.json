@@ -22,6 +22,11 @@
   "license": "MIT",
   "author": "Sanity.io <hello@sanity.io>",
   "main": "lib/schemas/color.js",
+  "files": [
+    "lib",
+    "src",
+    "sanity.json"
+  ],
   "scripts": {
     "prebuild": "npm run clean",
     "build": "sanipack build",
