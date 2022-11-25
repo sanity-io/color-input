@@ -1,9 +1,6 @@
 # @sanity/color-input
 
-> **NOTE**
->
-> This is the **Sanity Studio v3 version** of @sanity/color-input.
-> 
+> This is a **Sanity Studio v3** plugin.
 > For the v2 version, please refer to the [v2-branch](https://github.com/sanity-io/sanity/tree/next/packages/%40sanity/color-input).
 
 ## What is it?
@@ -14,13 +11,13 @@ Color input plugin for [Sanity](https://sanity.io/) that stores selected colors 
 
 ## Installation
 ```
-npm install --save @sanity/color-input@studio-v3
+npm install --save @sanity/color-input
 ```
 
 or 
 
 ```
-yarn add @sanity/color-input@studio-v3
+yarn add @sanity/color-input
 ```
 
 ## Usage
