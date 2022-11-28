@@ -32,8 +32,10 @@ export type ColorSchemaType = Omit<ObjectSchemaType, 'options'> & {
 }
 export type ColorInputProps = ObjectInputProps<ColorValue, ColorSchemaType>
 
-export function ColorInput(props: ColorInputProps) {
-  const {onChange, schemaType: type, readOnly, value} = props
+export function ColorInput(props: ObjectInputProps) {
+  const {onChange, readOnly} = props
+  const value = props.value as ColorValue | undefined
+  const type = props.schemaType as ColorSchemaType
   const focusRef = useRef<HTMLButtonElement>(null)
 
   // use local state so we can have instant ui updates while debouncing patch emits
@@ -86,7 +88,7 @@ export function ColorInput(props: ColorInputProps) {
 
   return (
     <>
-      {value ? (
+      {value && value.hex ? (
         <ColorPicker
           /*            ref={this.focusRef}*/
           color={color}
