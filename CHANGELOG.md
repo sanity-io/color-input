@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/sanity-io/color-input/compare/v3.0.0...v3.0.1) (2022-11-28)
+
+### Bug Fixes
+
+- creating color in portable text editor works again ([0ab5e86](https://github.com/sanity-io/color-input/commit/0ab5e863e1c747434c39e97f7c049138abad235f))
+
 ## [3.0.0](https://github.com/sanity-io/color-input/compare/v2.35.2...v3.0.0) (2022-11-25)
 
 ### ⚠ BREAKING CHANGES
