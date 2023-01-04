@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/sanity-io/color-input/compare/v3.0.1...v3.0.2) (2023-01-04)
+
+### Bug Fixes
+
+- **deps:** applied npx @sanity/plugin-kit inject ([f2635f4](https://github.com/sanity-io/color-input/commit/f2635f48853129fd0e6057a93a927753354a91c0))
+
 ## [3.0.1](https://github.com/sanity-io/color-input/compare/v3.0.0...v3.0.1) (2022-11-28)
 
 ### Bug Fixes
