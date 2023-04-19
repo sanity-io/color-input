@@ -3,7 +3,7 @@ import React, {useCallback, useMemo} from 'react'
 import {isValidHex} from 'react-color/lib/helpers/color'
 import {EditableInput} from 'react-color/lib/components/common'
 import {Box, Flex, useTheme} from '@sanity/ui'
-import {ColorChangeHandler, HEXColor, HSLColor, HSVColor, RGBColor} from 'react-color'
+import {Color, ColorChangeHandler, HSLColor, RGBColor} from 'react-color'
 import {EditableInputStyles} from 'react-color/lib/components/common/EditableInput'
 
 interface ColorPickerFieldsProps {
@@ -11,7 +11,7 @@ interface ColorPickerFieldsProps {
   hsl?: HSLColor
   hex?: string
   disableAlpha: boolean
-  onChange: ColorChangeHandler<HSLColor | HSVColor | RGBColor | HEXColor>
+  onChange: ColorChangeHandler<Color>
 }
 
 export const ColorPickerFields = ({

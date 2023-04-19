@@ -10,11 +10,12 @@ Color input plugin for [Sanity](https://sanity.io/) that stores selected colors 
 ![Color input in the Studio](assets/color-input.png)
 
 ## Installation
+
 ```
 npm install --save @sanity/color-input
 ```
 
-or 
+or
 
 ```
 yarn add @sanity/color-input
@@ -25,17 +26,13 @@ yarn add @sanity/color-input
 Add it as a plugin in sanity.config.ts (or .js):
 
 ```js
-import { colorInput } from "@sanity/color-input";
+import {colorInput} from '@sanity/color-input'
 
 export default defineConfig({
   // ...
-  plugins: [
-    colorInput(),
-  ] 
+  plugins: [colorInput()],
 })
 ```
-
-
 
 Now you can use the `color` type in your schema types:
 
@@ -47,13 +44,15 @@ Now you can use the `color` type in your schema types:
     {
       name: 'favoriteColor',
       title: 'Favorite color',
-      type: 'color'
-    }
+      type: 'color',
+    },
   ]
 }
 ```
 
 ## Options
+
+### Disable alpha
 
 To disable the alpha option, set `disableAlpha` to `true`:
 
@@ -72,6 +71,36 @@ To disable the alpha option, set `disableAlpha` to `true`:
 Which will render accordingly:
 
 ![This is an image](assets/no-alpha.png)
+
+### Color list
+
+To add list of predefined selectable color swatches for the user to choose from use `colorList`.
+This uses the `react-color` under the hood https://casesandberg.github.io/react-color/#api-color
+
+```js
+// ...fields...
+{
+  name: 'favoriteColor',
+  title: 'Color with list',
+  type: 'color',
+  options: {
+    colorList: [
+      '#FF6900',
+      { hex: '#FCB900' },
+      { r: 123, g: 220, b: 181 },
+      { r: 0, g: 208, b: 132, a: 0.5 },
+      { h: 203, s: 95, l: 77, a: 1 },
+      { h: 202, s: 95, l: 46, a: 0.5 },
+      { h: 345, s: 43, v: 97 },
+      { h: 344, s: 91, v: 92, a: 0.5 },
+    ]
+  }
+}
+```
+
+Which will render accordingly:
+
+![This is an image](assets/color-list.png)
 
 ## Data model
 
