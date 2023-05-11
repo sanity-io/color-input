@@ -1,12 +1,13 @@
 import React from 'react'
 import {Alpha, Checkboard, Hue, Saturation} from 'react-color/lib/components/common'
-import {CustomPicker, HEXColor, HSLColor, HSVColor, RGBColor} from 'react-color'
+import {Color, CustomPicker} from 'react-color'
 import {Box, Button, Card, Flex, Inline, Stack, Text} from '@sanity/ui'
 import {TrashIcon} from '@sanity/icons'
 import styled from 'styled-components'
 import {ColorPickerFields} from './ColorPickerFields'
 import {CustomPickerInjectedProps} from 'react-color/lib/components/common/ColorWrap'
 import {ColorValue} from './ColorInput'
+import {ColorList} from './ColorList'
 
 const ColorBox = styled(Box)`
   position: absolute;
@@ -23,10 +24,10 @@ const ReadOnlyContainer = styled(Flex)`
   width: 100%;
 `
 
-export interface ColorPickerProps
-  extends CustomPickerInjectedProps<HSLColor | HSVColor | RGBColor | HEXColor> {
+export interface ColorPickerProps extends CustomPickerInjectedProps<Color> {
   width?: string
   disableAlpha: boolean
+  colorList?: Array<Color>
   readOnly?: boolean
   onUnset: () => void
   color: ColorValue
@@ -39,6 +40,7 @@ const ColorPickerInner = (props: ColorPickerProps) => {
     onChange,
     onUnset,
     disableAlpha,
+    colorList,
     readOnly,
   } = props
 
@@ -70,7 +72,7 @@ const ColorPickerInner = (props: ColorPickerProps) => {
                   shadow={1}
                   radius={3}
                   overflow="hidden"
-                  style={{position: 'relative', height: '10px'}}
+                  style={{position: 'relative', height: '10px', background: '#fff'}}
                 >
                   <Alpha rgb={rgb} hsl={hsl} onChange={onChange} />
                 </Card>
@@ -82,7 +84,7 @@ const ColorPickerInner = (props: ColorPickerProps) => {
               flex={1}
               radius={2}
               overflow="hidden"
-              style={{position: 'relative', minWidth: '4em'}}
+              style={{position: 'relative', minWidth: '4em', background: '#fff'}}
             >
               <Checkboard />
               <ColorBox
@@ -135,6 +137,7 @@ const ColorPickerInner = (props: ColorPickerProps) => {
               </Flex>
             )}
           </Flex>
+          {colorList && <ColorList colors={colorList} onChange={onChange} />}
         </Stack>
       </Card>
     </div>

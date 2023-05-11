@@ -5,7 +5,7 @@ import {Button} from '@sanity/ui'
 import {AddIcon} from '@sanity/icons'
 import {ColorPicker} from './ColorPicker'
 import {ObjectInputProps} from 'sanity'
-import {HSLColor, HSVColor, RGBColor} from 'react-color'
+import {Color, HSLColor, HSVColor, RGBColor} from 'react-color'
 import {ObjectSchemaType} from 'sanity'
 
 const DEFAULT_COLOR: ColorValue & {source: string} = {
@@ -25,6 +25,7 @@ export interface ColorValue {
 
 export interface ColorOptions extends Omit<ObjectOptions, 'columns'> {
   disableAlpha?: boolean
+  colorList?: Array<Color>
 }
 
 export type ColorSchemaType = Omit<ObjectSchemaType, 'options'> & {
@@ -95,6 +96,7 @@ export function ColorInput(props: ObjectInputProps) {
           onChange={handleColorChange}
           readOnly={readOnly || (typeof type.readOnly === 'boolean' && type.readOnly)}
           disableAlpha={!!type.options?.disableAlpha}
+          colorList={type.options?.colorList}
           onUnset={handleUnset}
         />
       ) : (
