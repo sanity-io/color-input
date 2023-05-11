@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.0](https://github.com/sanity-io/color-input/compare/v3.0.2...v3.1.0) (2023-05-11)
+
+### Features
+
+- added color list to options ([#36](https://github.com/sanity-io/color-input/issues/36)) ([e3b9281](https://github.com/sanity-io/color-input/commit/e3b928197cc2ee1ac2ca54aabcc1335b14b050ce))
+
 ## [3.0.2](https://github.com/sanity-io/color-input/compare/v3.0.1...v3.0.2) (2023-01-04)
 
 ### Bug Fixes
