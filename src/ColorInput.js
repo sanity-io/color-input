@@ -39,6 +39,8 @@ export default class ColorInput extends PureComponent {
       hex: PropTypes.string,
       alpha: PropTypes.number,
     }),
+    markers: PropTypes.array,
+    presence: PropTypes.array,
   }
 
   focus() {
@@ -85,9 +87,15 @@ export default class ColorInput extends PureComponent {
   }
 
   render() {
-    const {type, readOnly, value, level} = this.props
+    const {type, readOnly, value, level, markers, presence} = this.props
     return (
-      <FormField title={type.title} description={type.description} level={level}>
+      <FormField
+        title={type.title}
+        description={type.description}
+        level={level}
+        __unstable_markers={markers}
+        __unstable_presence={presence}
+      >
         {value ? (
           <ColorPicker
             ref={this.focusRef}
