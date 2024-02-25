@@ -19,6 +19,8 @@ const ColorBoxContainer = styled.div`
 `
 
 const ColorBox = styled.div`
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--card-shadow-outline-color);
   content: '';
   position: absolute;
   inset: 0;
