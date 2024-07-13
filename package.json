@@ -80,7 +80,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "npm-run-all2": "^5.0.0",
-    "prettier": "^2.8.8",
+    "prettier": "^3.3.3",
     "prettier-plugin-packagejson": "^2.4.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
