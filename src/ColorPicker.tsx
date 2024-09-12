@@ -1,4 +1,3 @@
-import React from 'react'
 import {Alpha, Checkboard, Hue, Saturation} from 'react-color/lib/components/common'
 import {Color, CustomPicker} from 'react-color'
 import {Box, Button, Card, Flex, Inline, Stack, Text} from '@sanity/ui'
@@ -111,8 +110,8 @@ const ColorPickerInner = (props: ColorPickerProps) => {
                         {rgb?.r} {rgb?.g} {rgb?.b}
                       </Text>
                       <Text size={1}>
-                        <strong>HSL: </strong> {Math.round(hsl?.h ?? 0)} {Math.round(hsl?.s ?? 0)}%{' '}
-                        {Math.round(hsl?.l ?? 0)}
+                        <strong>HSL: </strong> {Math.round(hsl?.h ?? 0)}{' '}
+                        {Math.round((hsl?.s ?? 0) * 100)}% {Math.round((hsl?.l ?? 0) * 100)}%
                       </Text>
                     </Inline>
                   </Stack>
