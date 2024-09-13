@@ -5,6 +5,24 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/sanity-io/color-input/compare/v3.1.2...v4.0.0) (2024-09-13)
+
+### ⚠ BREAKING CHANGES
+
+- **deps:** `styled-components` v6.1 or later is now required
+
+Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+- migrate to v6 pkg-utils best practice (#73)
+
+### Features
+
+- migrate to v6 pkg-utils best practice ([#73](https://github.com/sanity-io/color-input/issues/73)) ([b6e6637](https://github.com/sanity-io/color-input/commit/b6e66372313a4980ded900d59b2d3e9683747d9a))
+
+### Miscellaneous Chores
+
+- **deps:** update commitlint monorepo to v19 (major) ([303d36f](https://github.com/sanity-io/color-input/commit/303d36f15791194f194379b4d6f5876e13fdaa79))
+
 ## [3.1.2](https://github.com/sanity-io/color-input/compare/v3.1.1...v3.1.2) (2024-09-13)
 
 ### Bug Fixes
