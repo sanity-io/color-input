@@ -5,6 +5,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/sanity-io/color-input/compare/v3.1.1...v3.1.2) (2024-09-13)
+
+### Bug Fixes
+
+- add border to color swatches ([#38](https://github.com/sanity-io/color-input/issues/38)) ([4063d7b](https://github.com/sanity-io/color-input/commit/4063d7bf24c3f6aa51743fbf08088628948c1849))
+- **deps:** Update non-major ([#60](https://github.com/sanity-io/color-input/issues/60)) ([35723d3](https://github.com/sanity-io/color-input/commit/35723d31eb15bf7d5acc277035267ac22aa1119d))
+- display HSL correctly ([#72](https://github.com/sanity-io/color-input/issues/72)) ([6a7123d](https://github.com/sanity-io/color-input/commit/6a7123db28c08b45f81ed7152f1f4fdc74f034e1))
+
 ## [3.1.1](https://github.com/sanity-io/color-input/compare/v3.1.0...v3.1.1) (2024-02-20)
 
 ### Bug Fixes
