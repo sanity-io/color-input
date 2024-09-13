@@ -99,5 +99,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "overrides": {
+    "conventional-changelog-conventionalcommits": ">= 8.0.0"
+  },
   "sanityExchangeUrl": "https://www.sanity.io/plugins/color-input"
 }
