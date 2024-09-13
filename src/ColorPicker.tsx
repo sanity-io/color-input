@@ -1,12 +1,13 @@
-import {Alpha, Checkboard, Hue, Saturation} from 'react-color/lib/components/common'
-import {Color, CustomPicker} from 'react-color'
-import {Box, Button, Card, Flex, Inline, Stack, Text} from '@sanity/ui'
 import {TrashIcon} from '@sanity/icons'
-import styled from 'styled-components'
-import {ColorPickerFields} from './ColorPickerFields'
-import {CustomPickerInjectedProps} from 'react-color/lib/components/common/ColorWrap'
-import {ColorValue} from './ColorInput'
+import {Box, Button, Card, Flex, Inline, Stack, Text} from '@sanity/ui'
+import {type Color, CustomPicker} from 'react-color'
+import {Alpha, Checkboard, Hue, Saturation} from 'react-color/lib/components/common'
+import type {CustomPickerInjectedProps} from 'react-color/lib/components/common/ColorWrap'
+import {styled} from 'styled-components'
+
+import type {ColorValue} from './ColorInput'
 import {ColorList} from './ColorList'
+import {ColorPickerFields} from './ColorPickerFields'
 
 const ColorBox = styled(Box)`
   position: absolute;

@@ -1,8 +1,9 @@
 import {definePlugin} from 'sanity'
+
+import {color, type ColorDefinition} from './schemas/color'
 import {hslaColor} from './schemas/hslaColor'
-import {rgbaColor} from './schemas/rgbaColor'
-import {color, ColorDefinition} from './schemas/color'
 import {hsvaColor} from './schemas/hsvaColor'
+import {rgbaColor} from './schemas/rgbaColor'
 
 export const colorInput = definePlugin({
   name: '@sanity/color-input',
@@ -11,7 +12,7 @@ export const colorInput = definePlugin({
   },
 })
 
-export {hslaColor, rgbaColor, color, hsvaColor}
+export {color, hslaColor, hsvaColor, rgbaColor}
 export {ColorInput} from './ColorInput'
 export type {ColorDefinition}
-export type {ColorValue, ColorInputProps, ColorOptions, ColorSchemaType} from './ColorInput'
+export type {ColorInputProps, ColorOptions, ColorSchemaType, ColorValue} from './ColorInput'

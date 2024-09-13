@@ -1,6 +1,6 @@
-import React from 'react'
-import {ColorInput, ColorOptions} from '../ColorInput'
-import {defineType, ObjectDefinition} from 'sanity'
+import {defineType, type ObjectDefinition} from 'sanity'
+
+import {ColorInput, type ColorOptions} from '../ColorInput'
 
 const round = (val: number = 1) => Math.round(val * 100)
 
