@@ -58,3 +58,4 @@ yalc.lock
 
 # Compiled plugin
 lib
+tsconfig.tsbuildinfo

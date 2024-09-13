@@ -1,12 +1,25 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
-import {ObjectOptions, set, setIfMissing, unset} from 'sanity'
-import {debounce} from 'lodash'
-import {Button} from '@sanity/ui'
 import {AddIcon} from '@sanity/icons'
+import {Button} from '@sanity/ui'
+import {startTransition, useCallback, useDeferredValue, useEffect, useRef, useState} from 'react'
+import type {Color, HSLColor, HSVColor, RGBColor} from 'react-color'
+import {
+  type ObjectInputProps,
+  type ObjectOptions,
+  type ObjectSchemaType,
+  set,
+  setIfMissing,
+  unset,
+} from 'sanity'
+import {useEffectEvent} from 'use-effect-event'
+
 import {ColorPicker} from './ColorPicker'
-import {ObjectInputProps} from 'sanity'
-import {Color, HSLColor, HSVColor, RGBColor} from 'react-color'
-import {ObjectSchemaType} from 'sanity'
+
+export interface ColorValue {
+  hex: string
+  hsl: HSLColor
+  hsv: HSVColor
+  rgb: RGBColor
+}
 
 const DEFAULT_COLOR: ColorValue & {source: string} = {
   hex: '#24a3e3',
@@ -14,13 +27,6 @@ const DEFAULT_COLOR: ColorValue & {source: string} = {
   hsv: {h: 200, s: 0.8414, v: 0.8901, a: 1},
   rgb: {r: 46, g: 163, b: 227, a: 1},
   source: 'hex',
-}
-
-export interface ColorValue {
-  hex: string
-  hsl: HSLColor
-  hsv: HSVColor
-  rgb: RGBColor
 }
 
 export interface ColorOptions extends Omit<ObjectOptions, 'columns'> {
@@ -41,46 +47,48 @@ export function ColorInput(props: ObjectInputProps) {
 
   // use local state so we can have instant ui updates while debouncing patch emits
   const [color, setColor] = useState(value)
-  useEffect(() => setColor(value), [value])
-
-  const emitSetColor = useCallback(
-    (nextColor: ColorValue) => {
-      const fieldPatches = type.fields
-        .filter((field) => field.name in nextColor)
-        .map((field) => {
-          const nextFieldValue = nextColor[field.name as keyof ColorValue]
-          const isObject = field.type.jsonType === 'object'
-          return set(
-            isObject ? Object.assign({_type: field.type.name}, nextFieldValue) : nextFieldValue,
-            [field.name]
-          )
-        })
-
-      onChange([
-        setIfMissing({_type: type.name}),
-        set(type.name, ['_type']),
-        set(nextColor.rgb?.a, ['alpha']),
-        ...fieldPatches,
-      ])
-    },
-    [onChange, type]
-  )
+  // Marking the `setColor` in a transition allows React to interrupt render should the user start dragging the input before React is finished rendering
+  useEffect(() => startTransition(() => setColor(value)), [value])
 
   // The color picker emits onChange events continuously while the user is sliding the
   // hue/saturation/alpha selectors. This debounces the event to avoid excessive patches
-  const debouncedColorChange = useMemo(() => debounce(emitSetColor, 100), [emitSetColor])
-  const handleColorChange = useCallback(
-    (nextColor: ColorValue) => {
-      setColor(nextColor)
-      debouncedColorChange(nextColor)
-    },
-    [debouncedColorChange, setColor]
-  )
+  // and massively improve render performance and avoid jank
+  const [emitColor, setEmitColor] = useState<typeof value>(undefined)
+  const debouncedColor = useDeferredValue(emitColor)
+  const handleChange = useEffectEvent((nextColor: ColorValue) => {
+    const fieldPatches = type.fields
+      .filter((field) => field.name in nextColor)
+      .map((field) => {
+        const nextFieldValue = nextColor[field.name as keyof ColorValue]
+        const isObject = field.type.jsonType === 'object'
+        return set(
+          isObject ? Object.assign({_type: field.type.name}, nextFieldValue) : nextFieldValue,
+          [field.name],
+        )
+      })
+
+    onChange([
+      setIfMissing({_type: type.name}),
+      set(type.name, ['_type']),
+      set(nextColor.rgb?.a, ['alpha']),
+      ...fieldPatches,
+    ])
+  })
+  useEffect(() => {
+    if (!debouncedColor) return undefined
+    const raf = requestAnimationFrame(() => handleChange(debouncedColor))
+    return () => cancelAnimationFrame(raf)
+  }, [debouncedColor, handleChange])
 
   const handleCreateColor = useCallback(() => {
     setColor(DEFAULT_COLOR)
-    emitSetColor(DEFAULT_COLOR)
-  }, [emitSetColor])
+    setEmitColor(DEFAULT_COLOR)
+  }, [])
+
+  const handleColorChange = useCallback((nextColor: ColorValue) => {
+    setColor(nextColor)
+    setEmitColor(nextColor)
+  }, [])
 
   const handleUnset = useCallback(() => {
     setColor(undefined)
@@ -91,7 +99,6 @@ export function ColorInput(props: ObjectInputProps) {
     <>
       {value && value.hex ? (
         <ColorPicker
-          /*            ref={this.focusRef}*/
           color={color}
           onChange={handleColorChange}
           readOnly={readOnly || (typeof type.readOnly === 'boolean' && type.readOnly)}

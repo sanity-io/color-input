@@ -1,7 +1,7 @@
-import React from 'react'
 import {Flex} from '@sanity/ui'
-import styled from 'styled-components'
-import {Color, ColorChangeHandler} from 'react-color'
+import {memo} from 'react'
+import type {Color, ColorChangeHandler} from 'react-color'
+import {styled} from 'styled-components'
 import tinycolor from 'tinycolor2'
 
 const ColorListWrap = styled(Flex)`
@@ -15,7 +15,8 @@ const ColorBoxContainer = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: 3px;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAADFJREFUOE9jZGBgEGHAD97gk2YcNYBhmIQBgWSAP52AwoAQwJvQRg1gACckQoC2gQgAIF8IscwEtKYAAAAASUVORK5CYII=') left center #fff;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAADFJREFUOE9jZGBgEGHAD97gk2YcNYBhmIQBgWSAP52AwoAQwJvQRg1gACckQoC2gQgAIF8IscwEtKYAAAAASUVORK5CYII=')
+    left center #fff;
 `
 
 const ColorBox = styled.div`
@@ -39,7 +40,7 @@ interface ColorListProps {
 
 const validateColors = (colors: Array<Color>) =>
   colors.reduce((cls: Array<ValidatedColor>, c) => {
-    // @ts-ignore
+    // @ts-expect-error fix types later
     const color = c.hex ? tinycolor(c.hex) : tinycolor(c)
     if (color.isValid()) {
       cls.push({
@@ -50,7 +51,7 @@ const validateColors = (colors: Array<Color>) =>
     return cls
   }, [])
 
-export const ColorList = ({colors, onChange}: ColorListProps) => {
+export const ColorList = memo(function ColorList({colors, onChange}: ColorListProps) {
   if (!colors) return null
   return (
     <ColorListWrap wrap="wrap">
@@ -66,4 +67,4 @@ export const ColorList = ({colors, onChange}: ColorListProps) => {
       ))}
     </ColorListWrap>
   )
-}
+})

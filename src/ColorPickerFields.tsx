@@ -1,10 +1,10 @@
-import React, {useCallback, useMemo} from 'react'
+import {Box, Flex, useTheme} from '@sanity/ui'
+import {useCallback, useMemo} from 'react'
+import type {Color, ColorChangeHandler, HSLColor, RGBColor} from 'react-color'
+import {EditableInput} from 'react-color/lib/components/common'
+import type {EditableInputStyles} from 'react-color/lib/components/common/EditableInput'
 // @ts-expect-error missing export
 import {isValidHex} from 'react-color/lib/helpers/color'
-import {EditableInput} from 'react-color/lib/components/common'
-import {Box, Flex, useTheme} from '@sanity/ui'
-import {Color, ColorChangeHandler, HSLColor, RGBColor} from 'react-color'
-import {EditableInputStyles} from 'react-color/lib/components/common/EditableInput'
 
 interface ColorPickerFieldsProps {
   rgb?: RGBColor
@@ -45,29 +45,29 @@ export const ColorPickerFields = ({
         textTransform: 'capitalize',
       },
     }),
-    [sanity]
+    [sanity],
   )
 
   const handleChange: ColorChangeHandler<Record<string, string>> = useCallback(
     (data) => {
-      if ('hex' in data && data.hex && isValidHex(data.hex)) {
+      if ('hex' in data && data['hex'] && isValidHex(data['hex'])) {
         onChange({
-          hex: data.hex,
+          hex: data['hex'],
           source: 'hex',
         })
       } else if (
         rgb &&
-        (('r' in data && data.r) || ('g' in data && data.g) || ('b' in data && data.b))
+        (('r' in data && data['r']) || ('g' in data && data['g']) || ('b' in data && data['b']))
       ) {
         onChange({
-          r: Number(data.r) || rgb.r,
-          g: Number(data.g) || rgb.g,
-          b: Number(data.b) || rgb.b,
+          r: Number(data['r']) || rgb.r,
+          g: Number(data['g']) || rgb.g,
+          b: Number(data['b']) || rgb.b,
           a: rgb.a,
           source: 'rgb',
         })
-      } else if (hsl && 'a' in data && data.a) {
-        let alpha = Number(data.a)
+      } else if (hsl && 'a' in data && data['a']) {
+        let alpha = Number(data['a'])
         if (alpha < 0) {
           alpha = 0
         } else if (alpha > 100) {
@@ -84,7 +84,7 @@ export const ColorPickerFields = ({
         })
       }
     },
-    [onChange, hsl, rgb]
+    [onChange, hsl, rgb],
   )
 
   return (
