@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/sanity-io/color-input/compare/v4.0.0...v4.0.1) (2024-09-13)
+
+### Bug Fixes
+
+- **ColorInput:** add lazy loading ([#74](https://github.com/sanity-io/color-input/issues/74)) ([8a8a5cc](https://github.com/sanity-io/color-input/commit/8a8a5cc50ee92cc793d669f7dd2553d05dffb686))
+
 ## [4.0.0](https://github.com/sanity-io/color-input/compare/v3.1.2...v4.0.0) (2024-09-13)
 
 ### ⚠ BREAKING CHANGES
