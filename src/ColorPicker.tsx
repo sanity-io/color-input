@@ -5,9 +5,9 @@ import {Alpha, Checkboard, Hue, Saturation} from 'react-color/lib/components/com
 import type {CustomPickerInjectedProps} from 'react-color/lib/components/common/ColorWrap'
 import {styled} from 'styled-components'
 
-import type {ColorValue} from './ColorInput'
 import {ColorList} from './ColorList'
 import {ColorPickerFields} from './ColorPickerFields'
+import type {ColorValue} from './types'
 
 const ColorBox = styled(Box)`
   position: absolute;

@@ -13,6 +13,6 @@ export const colorInput = definePlugin({
 })
 
 export {color, hslaColor, hsvaColor, rgbaColor}
-export {ColorInput} from './ColorInput'
+export {ColorInput} from './LazyColorInput'
 export type {ColorDefinition}
-export type {ColorInputProps, ColorOptions, ColorSchemaType, ColorValue} from './ColorInput'
+export type {ColorInputProps, ColorOptions, ColorSchemaType, ColorValue} from './types'
