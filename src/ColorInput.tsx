@@ -1,25 +1,11 @@
 import {AddIcon} from '@sanity/icons'
 import {Button} from '@sanity/ui'
 import {startTransition, useCallback, useDeferredValue, useEffect, useRef, useState} from 'react'
-import type {Color, HSLColor, HSVColor, RGBColor} from 'react-color'
-import {
-  type ObjectInputProps,
-  type ObjectOptions,
-  type ObjectSchemaType,
-  set,
-  setIfMissing,
-  unset,
-} from 'sanity'
+import {type ObjectInputProps, set, setIfMissing, unset} from 'sanity'
 import {useEffectEvent} from 'use-effect-event'
 
 import {ColorPicker} from './ColorPicker'
-
-export interface ColorValue {
-  hex: string
-  hsl: HSLColor
-  hsv: HSVColor
-  rgb: RGBColor
-}
+import type {ColorSchemaType, ColorValue} from './types'
 
 const DEFAULT_COLOR: ColorValue & {source: string} = {
   hex: '#24a3e3',
@@ -29,17 +15,7 @@ const DEFAULT_COLOR: ColorValue & {source: string} = {
   source: 'hex',
 }
 
-export interface ColorOptions extends Omit<ObjectOptions, 'columns'> {
-  disableAlpha?: boolean
-  colorList?: Array<Color>
-}
-
-export type ColorSchemaType = Omit<ObjectSchemaType, 'options'> & {
-  options?: ColorOptions
-}
-export type ColorInputProps = ObjectInputProps<ColorValue, ColorSchemaType>
-
-export function ColorInput(props: ObjectInputProps) {
+export default function ColorInput(props: ObjectInputProps) {
   const {onChange, readOnly} = props
   const value = props.value as ColorValue | undefined
   const type = props.schemaType as ColorSchemaType

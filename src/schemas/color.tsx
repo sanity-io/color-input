@@ -1,6 +1,7 @@
 import {defineType, type ObjectDefinition} from 'sanity'
 
-import {ColorInput, type ColorOptions} from '../ColorInput'
+import {ColorInput} from '../LazyColorInput'
+import {type ColorOptions} from '../types'
 
 const round = (val: number = 1) => Math.round(val * 100)
 
