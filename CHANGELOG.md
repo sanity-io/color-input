@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/sanity-io/color-input/compare/v4.0.1...v4.0.2) (2024-12-17)
+
+### Bug Fixes
+
+- support react 19 ([#81](https://github.com/sanity-io/color-input/issues/81)) ([507b550](https://github.com/sanity-io/color-input/commit/507b55086bc68115de775201c070a14b92a061ee))
+
 ## [4.0.1](https://github.com/sanity-io/color-input/compare/v4.0.0...v4.0.1) (2024-09-13)
 
 ### Bug Fixes
