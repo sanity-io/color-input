@@ -53,9 +53,9 @@
   "browserslist": "extends @sanity/browserslist-config",
   "prettier": "@sanity/prettier-config",
   "dependencies": {
-    "@sanity/icons": "^3.4.0",
-    "@sanity/incompatible-plugin": "^1.0.4",
-    "@sanity/ui": "^2.8.9",
+    "@sanity/icons": "^3.5.3",
+    "@sanity/incompatible-plugin": "^1.0.5",
+    "@sanity/ui": "^2.10.10",
     "react-color": "^2.19.3",
     "use-effect-event": "^1.0.2"
   },
@@ -83,13 +83,13 @@
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sanity": "^3.57.3",
+    "sanity": "^3.67.1",
     "semantic-release": "^24.1.1",
     "styled-components": "^6.1",
     "typescript": "^5.6.2"
   },
   "peerDependencies": {
-    "react": "^18.3",
+    "react": "^18.3 || ^19",
     "sanity": "^3.23.0",
     "styled-components": "^6.1"
   },
