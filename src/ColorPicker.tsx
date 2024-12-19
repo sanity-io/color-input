@@ -86,7 +86,12 @@ const ColorPickerInner = (props: ColorPickerProps) => {
               overflow="hidden"
               style={{position: 'relative', minWidth: '4em', background: '#fff'}}
             >
-              <Checkboard />
+              <Checkboard
+                size={8}
+                white="transparent"
+                grey="rgba(0,0,0,.08)"
+                renderers={{} as {canvas: unknown}}
+              />
               <ColorBox
                 style={{
                   backgroundColor: `rgba(${rgb?.r},${rgb?.g},${rgb?.b},${rgb?.a})`,
