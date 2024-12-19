@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.3](https://github.com/sanity-io/color-input/compare/v4.0.2...v4.0.3) (2024-12-19)
+
+### Bug Fixes
+
+- explicitly provide default props to Checkboard component ([#78](https://github.com/sanity-io/color-input/issues/78)) ([0baa486](https://github.com/sanity-io/color-input/commit/0baa486d33234c473f81cf8da6b6547d4924a164))
+
 ## [4.0.2](https://github.com/sanity-io/color-input/compare/v4.0.1...v4.0.2) (2024-12-17)
 
 ### Bug Fixes
