@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.4](https://github.com/sanity-io/color-input/compare/v4.0.3...v4.0.4) (2025-07-09)
+
+### Bug Fixes
+
+- **deps:** allow studio v4 in peer dep ranges ([#88](https://github.com/sanity-io/color-input/issues/88)) ([a7f9743](https://github.com/sanity-io/color-input/commit/a7f9743864b9f9ab457d42e8cca40f3597f6f2e4))
+
 ## [4.0.3](https://github.com/sanity-io/color-input/compare/v4.0.2...v4.0.3) (2024-12-19)
 
 ### Bug Fixes
