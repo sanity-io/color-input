@@ -52,9 +52,6 @@
   },
   "browserslist": "extends @sanity/browserslist-config",
   "prettier": "@sanity/prettier-config",
-  "overrides": {
-    "conventional-changelog-conventionalcommits": ">= 8.0.0"
-  },
   "dependencies": {
     "@sanity/icons": "^3.5.3",
     "@sanity/incompatible-plugin": "^1.0.5",
@@ -102,5 +99,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "sanityExchangeUrl": "https://www.sanity.io/plugins/color-input"
+  "overrides": {
+    "conventional-changelog-conventionalcommits": ">= 8.0.0"
+  },
+  "sanityExchangeUrl": "https://www.sanity.io/plugins/color-input",
+  "sanityPlugin": {
+    "verifyPackage": {
+      "eslintImports": false
+    }
+  }
 }
