@@ -60,7 +60,7 @@
     "@sanity/incompatible-plugin": "^1.0.5",
     "@sanity/ui": "^2.10.10",
     "react-color": "^2.19.3",
-    "use-effect-event": "^1.0.2"
+    "use-effect-event": "^2.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
