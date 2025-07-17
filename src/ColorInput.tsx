@@ -54,7 +54,7 @@ export default function ColorInput(props: ObjectInputProps) {
     if (!debouncedColor) return undefined
     const raf = requestAnimationFrame(() => handleChange(debouncedColor))
     return () => cancelAnimationFrame(raf)
-  }, [debouncedColor, handleChange])
+  }, [debouncedColor])
 
   const handleCreateColor = useCallback(() => {
     setColor(DEFAULT_COLOR)
