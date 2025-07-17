@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.5](https://github.com/sanity-io/color-input/compare/v4.0.4...v4.0.5) (2025-07-17)
+
+### Bug Fixes
+
+- **deps:** Update dependency use-effect-event to v2 ([#91](https://github.com/sanity-io/color-input/issues/91)) ([16d09b7](https://github.com/sanity-io/color-input/commit/16d09b726575201f60593a8d1fc04f8070679a49))
+
 ## [4.0.4](https://github.com/sanity-io/color-input/compare/v4.0.3...v4.0.4) (2025-07-09)
 
 ### Bug Fixes
