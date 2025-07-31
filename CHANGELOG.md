@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.6](https://github.com/sanity-io/color-input/compare/v4.0.5...v4.0.6) (2025-07-31)
+
+### Bug Fixes
+
+- **deps:** Update dependency @sanity/ui to v3 ([#92](https://github.com/sanity-io/color-input/issues/92)) ([dc56773](https://github.com/sanity-io/color-input/commit/dc567737712c00ac5b6c56840199d12b1052b84d))
+
 ## [4.0.5](https://github.com/sanity-io/color-input/compare/v4.0.4...v4.0.5) (2025-07-17)
 
 ### Bug Fixes
