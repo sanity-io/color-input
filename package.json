@@ -55,7 +55,7 @@
   "dependencies": {
     "@sanity/icons": "^3.5.3",
     "@sanity/incompatible-plugin": "^1.0.5",
-    "@sanity/ui": "^2.10.10",
+    "@sanity/ui": "^3.0.5",
     "react-color": "^2.19.3",
     "use-effect-event": "^2.0.3"
   },
