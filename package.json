@@ -36,9 +36,7 @@
   "types": "./lib/index.d.ts",
   "files": [
     "lib",
-    "sanity.json",
-    "src",
-    "v2-incompatible.js"
+    "src"
   ],
   "scripts": {
     "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
