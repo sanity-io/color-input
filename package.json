@@ -56,12 +56,14 @@
     "@sanity/icons": "^3.5.3",
     "@sanity/incompatible-plugin": "^1.0.5",
     "@sanity/ui": "^3.0.5",
+    "tinycolor2": "^1.6.0",
     "react-color": "^2.19.3",
     "use-effect-event": "^2.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/js": "^9.38.0",
     "@sanity/pkg-utils": "^6.11.1",
     "@sanity/plugin-kit": "^4.0.18",
     "@sanity/prettier-config": "1.0.3",
@@ -80,6 +82,7 @@
     "lint-staged": "^13.0.3",
     "npm-run-all2": "^5.0.0",
     "prettier": "^3.3.3",
+    "prettier-plugin-packagejson": "^2.5.19",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sanity": "^3.67.1",
