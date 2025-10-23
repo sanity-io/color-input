@@ -52,7 +52,6 @@
   "prettier": "@sanity/prettier-config",
   "dependencies": {
     "@sanity/icons": "^3.5.3",
-    "@sanity/incompatible-plugin": "^1.0.5",
     "@sanity/ui": "^3.0.5",
     "tinycolor2": "^1.6.0",
     "react-color": "^2.19.3",
