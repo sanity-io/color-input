@@ -15,7 +15,7 @@ export interface ColorDefinition extends Omit<ObjectDefinition, 'type' | 'fields
   options?: ColorOptions
 }
 
-declare module '@sanity/types' {
+declare module 'sanity' {
   // makes type: 'color' narrow correctly when using defineTyp/defineField/defineArrayMember
   export interface IntrinsicDefinitions {
     color: ColorDefinition
